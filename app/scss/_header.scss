@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+  z-index: 1;
   .overlay {
     position: fixed;
     top: 0px;
@@ -95,6 +97,10 @@
       color: $darkBlue;
       padding: 0.625rem;
       text-align: center;
+      transition: all 200ms ease-in-out;
+      &:hover {
+        color: $limeGreen;
+      }
     }
   }
 }

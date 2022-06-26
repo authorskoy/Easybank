@@ -1,0 +1,92 @@
+.footer {
+  background-color: $darkBlue;
+  color: $white;
+  .container {
+    padding: 2.5rem;
+    text-align: center;
+    a {
+      color: $white;
+    }
+    @include breakpoints-up(large) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 2fr;
+      grid-template-rows: repeat(1, auto);
+      grid-template-areas:
+        "logo links-col1 links-col2 cta"
+        "socials links-col1 links-col2 cta";
+      justify-items: start;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-bottom: 1.875rem;
+    grid-area: logo;
+    @include breakpoints-up(large) {
+      margin-bottom: 0;
+    }
+  }
+  &__socials {
+    margin-bottom: 1.875rem;
+    grid-area: socials;
+    a {
+      display: inline-block;
+      svg path {
+        transition: all 200ms ease-in-out;
+      }
+
+      &:hover svg path {
+        fill: $limeGreen;
+      }
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+    @include breakpoints-up(large) {
+      margin-bottom: 0;
+    }
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.875rem;
+    align-items: center;
+    font-size: 0.875rem;
+
+    @include breakpoints-up(large) {
+      align-items: start;
+      margin-bottom: 0;
+      margin-left: 6.4rem;
+    }
+    a {
+      line-height: 2;
+      transition: all 200ms ease-in-out;
+      &:hover {
+        color: $limeGreen;
+      }
+    }
+    &.links-col1 {
+      grid-area: links-col1;
+      margin-bottom: 0;
+    }
+    &.links-col2 {
+      grid-area: links-col2;
+    }
+  }
+  &__cta {
+    grid-area: cta;
+    a.button {
+      margin-bottom: 1.875rem;
+    }
+    @include breakpoints-up(large) {
+      justify-self: end;
+      text-align: right;
+    }
+  }
+  &__copyright {
+    grid-area: copyright;
+    color: $grayishBlue;
+    font-size: 0.875rem;
+  }
+}
